@@ -6,5 +6,9 @@
   </section>
 
   <section class="results">
-    <app-housing-location></app-housing-location>
+    <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
   </section>
+<!-- Property binding to a component tag: `[attribute] = "value"`.
+ It indicates Angular that the assigned value should be treated as a property
+ from the component class and not a string value. 
+ El nombre de housingLocation viene del nombre de la propiedad de HomeComponent-->
