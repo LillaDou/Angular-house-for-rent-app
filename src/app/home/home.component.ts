@@ -11,7 +11,7 @@ import { HousingLocation } from '../interfaces/housing-location';
     HousingLocationComponent,
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
@@ -26,6 +26,6 @@ export class HomeComponent {
     wifi: true,
     laundry: false,
   };
-  
+
 }
 
