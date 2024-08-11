@@ -6,9 +6,26 @@
   </section>
 
   <section class="results">
-    <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
+    <app-housing-location 
+     *ngFor="let housingLocation of housingLocationList"
+      [housingLocation]="housingLocation"
+    ></app-housing-location>
+
+    <!-- @for (housingLocation of housingLocationList; track housingLocation.id) {
+      <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
+    } -->
+
+    <!--? Estos dos (@For y *ngFor) son lo mismo pero ejecutado de maneras diferentes:
+     *ngFor: es un atributo del selector app-housing-location
+     @for: es un bloque que realiza un bucle. En este caso, extrae cada elemento del housingLocationList, 
+     y hace un seguimiento de los elementos en base a su id único. Dentro del for se encontraría el selector
+     que proyectaría el bucle en pantalla -->
   </section>
-<!-- Property binding to a component tag: `[attribute] = "value"`.
+  <div class="class-1" *ng></div>
+
+<!-- Property/attribute binding to a component tag: `[attribute] = "value"`.
  It indicates Angular that the assigned value should be treated as a property
  from the component class and not a string value. 
- El nombre de housingLocation viene del nombre de la propiedad de HomeComponent-->
+ El nombre de housingLocation viene del nombre de la propiedad de HomeComponent.
+ Después, añadimos el ngFor, a través del cuál el "housingLocation" del arreglo 
+ [housingLocation] es el housingLocation del ngFor.-->
