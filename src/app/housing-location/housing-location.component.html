@@ -8,4 +8,9 @@
     
     <h2 class="listing-heading">{{ housingLocation.name }}</h2>
     <p class="listing-location">{{ housingLocation.city }}, {{ housingLocation.state }}</p>
+    <a [routerLink]="['/details', housingLocation.id]">Learn More</a>
+    <!-- The `routerLink` directive enables Angular's router to create dynamic 
+     links in the application. The value assigned to the `routerLink` is an array 
+     with two entries: the static portion of the path (/details)
+     and the dynamic data (housingLocation.id). -->
 </section>

@@ -11,7 +11,7 @@ const routeConfig: Routes = [
         title: 'Home page',
     },
     {
-        path: 'details/:id',
+        path: 'details/:id',//El :id es dinámico
         component: DetailsComponent,
         title: 'Home details',
     },
