@@ -28,7 +28,10 @@ export class HomeComponent {
   //   laundry: false,
   // };
 
-  housingLocationList: HousingLocation[] = [ ];
+  housingLocationList: HousingLocation[] = [];
+
+  filteredLocationList: HousingLocation[] = [];
+  //Holds the values that match the search criteria entered by the user
 
   //Inyectamos el nuevo servicio:
   housingService: HousingService = inject(HousingService);
@@ -36,6 +39,20 @@ export class HomeComponent {
   //El constructor es lo primero que se va a inicializar
   constructor() {
     this.housingLocationList = this.housingService.getAllHousingLocations();
+    this.filteredLocationList = this.housingLocationList;
+  };
+
+//!PREGUNTAR A STEFAN LA SEGUNDA PARTE
+  filterResults( text: string ) {
+
+    if( !text ) {
+      this.filteredLocationList = this.housingLocationList;
+      return;
+    }
+
+    this.filteredLocationList = this.housingLocationList.filter( (housingLocation) =>
+      housingLocation?.city.toLowerCase().includes( text.toLowerCase() ),
+    )
   };
 
 }
