@@ -42,7 +42,7 @@ export class HomeComponent {
     this.filteredLocationList = this.housingLocationList;
   };
 
-//!PREGUNTAR A STEFAN LA SEGUNDA PARTE
+
   filterResults( text: string ) {
 
     if( !text ) {
@@ -54,6 +54,13 @@ export class HomeComponent {
       housingLocation?.city.toLowerCase().includes( text.toLowerCase() ),
     )
   };
+  //La segunda parte del método de filterResults indica lo siguiente: 
+  //El .filter es un método que funciona por el estilo de un for loop. El argumento es el 
+  //housingLocation. 
+  //Si el housingLocation existe, accede a la propiedad de ciudad, y cambialas a minúsculas. 
+  //Después, incluye (.includes() método) el texto escrito en la barra de búsqueda (text 
+  //es el argumento de filterResults), que también será cambiado a minúscula para que 
+  //el housingLocation.city.toLowerCase coincida con el text.toLowerCase. 
 
 }
 
