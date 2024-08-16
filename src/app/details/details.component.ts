@@ -20,6 +20,8 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
+  //This code gives the `DetailsComponent` access to the `ActivatedRoute` router 
+  //feature that enables you to have access to the data about the current route. 
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
 
@@ -34,14 +36,20 @@ export class DetailsComponent {
   //data. In this example `firstName` is a `string` and the default value is empty 
   //string.
 
-  constructor() {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
-  }
-  //This code gives the `DetailsComponent` access to the `ActivatedRoute` router 
-  //feature that enables you to have access to the data about the current route. 
+  // constructor() {
+  //   const housingLocationId = Number(this.route.snapshot.params['id']);
+  //   this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
+  // }
   //In the `constructor`, the code converts the `id` parameter acquired from the 
   //route from a string to a number.
+
+  constructor() {
+    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    this.housingService.getHousingLocationById( housingLocationId ).subscribe( housingLocation => {
+      this.housingLocation = housingLocation;
+    } )
+  }
+
 
   submitApplication() {
     this.housingService.submitApplication(

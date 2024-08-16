@@ -38,12 +38,15 @@ export class HomeComponent {
 
   //El constructor es lo primero que se va a inicializar
   constructor() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
-    this.filteredLocationList = this.housingLocationList;
+    this.housingService.getAllHousingLocations().subscribe(housingLocationList => {
+      this.housingLocationList = housingLocationList;
+      this.filteredLocationList = this.housingLocationList;
+    });
   };
 
-
   filterResults( text: string ) {
+
+    console.log(this.housingLocationList);
 
     if( !text ) {
       this.filteredLocationList = this.housingLocationList;
